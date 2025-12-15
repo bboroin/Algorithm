@@ -1,12 +1,10 @@
 function solution(s){
-    var answer = false;
-    let arr = [];
+    var answer = 0;
     
-    if (s.startsWith(")")) return answer;
-
     for (let i of s) {
-        i === "(" ? arr.push(i) : arr.pop();
+        answer += i === "(" ? 1 : -1;
+        if (answer < 0) return false;
     } 
 
-    return arr.length ? answer : !answer;
+    return answer ? false : true;
 }
